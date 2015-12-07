@@ -8,29 +8,25 @@ body {
     overflow: -moz-scrollbars-vertical;
 }
 
-.fb-profile img.fb-image-lg{
+.fb-profile img.fb-image-lg {
     z-index: 0;
     width: 100%;
     margin-bottom: 10px;
 }
 
-.fb-image-profile
-{
+.fb-image-profile {
     margin: -90px 10px 0px 50px;
     z-index: 9;
     width: 20%;
 }
 
-@media (max-width:768px)
-{
-    .fb-profile-text > h1
-    {
+@media (max-width:768px) {
+    .fb-profile-text > h1 {
         font-weight: 700;
         font-size:16px;
     }
 
-    .fb-image-profile
-    {
+    .fb-image-profile {
         margin: -45px 10px 0px 25px;
         z-index: 9;
         width: 20%;
@@ -47,4 +43,79 @@ body {
 .wrapper {
     min-height: 100%;
     margin: 0 auto 0px auto;
+}
+
+.btn-nav {
+    background-color: #fff;
+    border: 1px solid #e0e1db;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.btn-nav:hover {
+    color: #307da5;
+    cursor: pointer;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+}
+.btn-nav.active {
+    color: #307da5;
+    padding: 2px;
+    border-top: 6px solid #307da5;
+    border-bottom: 6px solid #307da5;
+    border-left: 0;
+    border-right: 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -webkit-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -moz-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -o-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -webkit-animation: pulsate 1.2s linear infinite;
+    animation: pulsate 1.2s linear infinite;
+}
+.btn-nav.active:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-color: #307da5 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    top: 0;
+    left: 50%;
+}
+.btn-nav .glyphicon {
+    padding-top: 16px;
+    font-size: 40px;
+}
+.btn-nav.active p {
+    margin-bottom: 8px;
+}
+@-webkit-keyframes pulsate {
+    50% { color: #000; }
+}
+@keyframes pulsate {
+    50% { color: #000; }
+}
+@media (max-width: 480px) {
+    .btn-group {
+        display: block !important;
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 600px) {
+    .btn-nav .glyphicon {
+        padding-top: 12px;
+        font-size: 26px;
+    }
+}
+
+.index-navbar {
+    margin-top: 100px;
 }
