@@ -1,3 +1,13 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding-bottom: 40px;
+    overflow: -moz-scrollbars-vertical;
+}
+
 .fb-profile img.fb-image-lg{
     z-index: 0;
     width: 100%;
@@ -25,4 +35,16 @@
         z-index: 9;
         width: 20%;
     }
+}
+
+.footer {
+    color: #887;
+    background-color: #eee;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto 0px auto;
 }
