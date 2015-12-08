@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/css/extends.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <title>君诺宝宝</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://junnuobaby.github.io">君诺宝宝</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="mood.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> 我的心情</a></li>
+                <li><a href="story.html"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 我的故事</a></li>
+                <li><a href="precious.html"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> 我的宝藏</a></li>
+                <li><a href="https://ictxiangxin.github.io"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 时间坐标</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="container min-height">
+        <div class="fb-profile">
+            <img align="left" class="fb-image-lg" src="assets/images/fb-background-image.jpg"/>
+            <img align="left" class="fb-image-profile thumbnail" src="assets/images/fb-profile-image.png"/>
+            <div class="fb-profile-text">
+                <h1>君诺宝宝</h1>
+                <p>任你血雨腥风，我自静若处子</p>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="2015-12-08 16:23"></i></a></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <img class="img-responsive" src="assets/images/story/1.png" />
+                        </div>
+                        <div class="timeline-body">
+                            <p>深圳是一座临海的城市，风闻上去总带点咸味。海在南面，我在北面。这里没有闹市，也看不见繁华，每当我想起海边的海风时，总要历经数小时的颠簸，抵达那片天地。无忧无虑，无法无天，在细砂中奔跑，在浪花中沐浴。</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <a><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                            <a class="pull-right">junnuobaby</a>
+                        </div>
+                    </div>
+                </li>
+                <li  class="timeline-inverted">
+                    <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record invert" rel="tooltip" title="2015-12-08 16:23"></i></a></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <img class="img-responsive" src="assets/images/story/2.png" />
+                        </div>
+                        <div class="timeline-body">
+                            <p>在一片叫做尼布尔山（Nibel）的森林中有个守护神“灵魂树”。一场庞大暴风雨促成灵魂树许多孩子中的Ori被夺走了并被一只母爱泛滥的母兽Naru认养，此后快乐地生活了许多年。灵魂树派其他孩子寻找Ori，但是损兵折将，不得已之下在一个黑夜中使用光之仪式借助强光照亮天空来召唤Ori。Ori看到了光，但不明白是什么意思。但灵魂树的光会对黑鸟kuro的孩子造成生命威胁。Kuro为了保护自己的孩子，决定铲除灵魂树这个威胁。把灵魂树的至宝Sein（赛安）夺走了，扔到了野外。灵魂树失去了行使魔力的法器，丧失了对Nibel森林的干涉和保护能力，三个生命元素的稳定状态被打破，尼布尔森林丧失了生机。由于Nibel森林开始枯萎凋零着，Naru被饿死，Ori再次成为孤儿，开始流浪。最后精疲力竭，即将死掉。灵魂树用最后的魔力，复活了Ori。</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <a><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                            <a class="pull-right">ictxiangxin</a>
+                        </div>
+                    </div>
+                <li class="clearfix" style="float: none;"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer class="footer text-center">
+    <div class="container">
+        <small>© Copyright 2015. Craft by junnuobaby ictxiangxin</small>
+    </div>
+</footer>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        var my_posts = $("[rel=tooltip]");
+
+        var size = $(window).width();
+        for(i=0;i<my_posts.length;i++){
+            the_post = $(my_posts[i]);
+
+            if(the_post.hasClass('invert') && size >=767 ){
+                the_post.tooltip({ placement: 'left'});
+                the_post.css("cursor","pointer");
+            }else{
+                the_post.tooltip({ placement: 'rigth'});
+                the_post.css("cursor","pointer");
+            }
+        }
+    });
+</script>
+
+<style>
+    .timeline {
+        list-style: none;
+        padding: 20px 0 20px;
+        position: relative;
+        margin-top: 100px;
+    }
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #eeeeee;
+        left: 50%;
+        margin-left: -1.5px;
+    }
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+        width: 50%;
+        float: left;
+        clear: left;
+    }
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
+    .timeline > li:after {
+        clear: both;
+    }
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
+    .timeline > li:after {
+        clear: both;
+    }
+    .timeline > li > .timeline-panel {
+        width: 95%;
+        float: left;
+        border: 1px solid #d4d4d4;
+        /*border-radius: 2px;*/
+        /*padding: 20px;*/
+        position: relative;
+        -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    }
+
+    .timeline > li > .timeline-panel:before {
+        position: absolute;
+        top: 26px;
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid #ccc;
+        border-right: 0 solid #ccc;
+        border-bottom: 15px solid transparent;
+        content: " ";
+    }
+    .timeline > li > .timeline-panel:after {
+        position: absolute;
+        top: 27px;
+        right: -14px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid #fff;
+        border-right: 0 solid #fff;
+        border-bottom: 14px solid transparent;
+        content: " ";
+    }
+    .timeline > li > .timeline-badge {
+        color: #fff;
+        width: 24px;
+        height: 24px;
+        line-height: 50px;
+        font-size: 1.4em;
+        text-align: center;
+        position: absolute;
+        top: 16px;
+        right: -12px;
+        /*background-color: #999999;*/
+        z-index: 100;
+        /*
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        */
+    }
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+    }
+    .timeline-badge > a {
+        color: #C5C7C5 !important;
+    }
+    .timeline-badge a:hover {
+        color: #000 !important;
+    }
+    .timeline-title {
+        margin-top: 0;
+        color: inherit;
+    }
+    .timeline-body > p,
+    .timeline-body > ul {
+        padding:20px;
+        margin-bottom: 0;
+    }
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+    .timeline-footer{
+        padding:20px;
+        background-color:#f4f4f4;
+    }
+    .timeline-footer > a{
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .tooltip{
+
+        position:absolute;
+        z-index:1020;
+        display:block;
+        visibility:visible;
+        padding:5px;
+        font-size:11px;
+        opacity:0;
+        filter:alpha(opacity=0);
+
+    }
+    .tooltip.in{
+        /*opacity:0;
+        filter:alpha(opacity=80);*/
+
+    }
+    .tooltip.top{
+        margin-top:-2px;
+    }
+    .tooltip.right{
+        margin-left:2px;
+    }
+    .tooltip.bottom{
+        margin-top:2px;
+    }
+    .tooltip.left{
+        margin-left:-2px;
+    }
+    .tooltip.top .tooltip-arrow{
+        bottom:0;
+        left:0;
+        margin-left:0;
+        border-left:0 solid transparent;
+        border-right:5px solid transparent;
+        border-top:0 solid #000;
+    }
+    .tooltip.left .tooltip-arrow{
+        bottom:0;
+        left:0;
+        margin-left:0;
+        border-left:0 solid transparent;
+        border-right:5px solid transparent;
+        border-top:0 solid #000;
+    }
+    .tooltip.bottom .tooltip-arrow{
+        bottom:0;
+        left:0;
+        margin-left:0;
+        border-left:0 solid transparent;
+        border-right:5px solid transparent;
+        border-top:0 solid #000;
+    }
+    .tooltip.right .tooltip-arrow{
+        bottom:0;
+        left:0;
+        margin-left:0;
+        border-left:0 solid transparent;
+        border-right:5px solid transparent;
+        border-top:0 solid #000;
+    }
+    .tooltip-inner{
+        width:200px;
+        padding:3px 8px;
+        color:#fff;
+        text-align:center;
+        text-decoration:none;
+        background-color:#313131;
+        -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+        border-radius:0px;
+    }
+    .tooltip-arrow{
+        position:absolute;
+        width:0;
+        height:0;
+    }
+    .timeline > li.timeline-inverted{
+        float: right;
+        clear: right;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .timeline > li:nth-child(2){
+        margin-top: 60px;
+    }
+    .timeline > li.timeline-inverted > .timeline-badge{
+        left: -12px;
+    }
+
+    @media (max-width: 767px) {
+        ul.timeline:before {
+            left: 40px;
+        }
+
+        ul.timeline > li {
+            margin-bottom: 20px;
+            position: relative;
+            width:100%;
+            float: left;
+            clear: left;
+        }
+        ul.timeline > li > .timeline-panel {
+            width: calc(100% - 90px);
+            width: -moz-calc(100% - 90px);
+            width: -webkit-calc(100% - 90px);
+        }
+
+        ul.timeline > li > .timeline-badge {
+            left: 28px;
+            margin-left: 0;
+            top: 16px;
+        }
+
+        ul.timeline > li > .timeline-panel {
+            float: right;
+        }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+
+        .timeline > li.timeline-inverted{
+            float: left;
+            clear: left;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-badge{
+            left: 28px;
+        }
+    }
+</style>
