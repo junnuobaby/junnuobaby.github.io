@@ -7,6 +7,8 @@ body {
     padding-bottom: 40px;
     overflow: -moz-scrollbars-vertical;
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    background-image: url("../images/background.png");
+    background-size: cover;
 }
 
 .fb-profile img.fb-image-lg {
@@ -19,6 +21,7 @@ body {
     margin: -90px 10px 0px 50px;
     z-index: 9;
     width: 20%;
+    box-shadow: 3px 3px 20px #2c2c2c;
 }
 
 @media (max-width:768px) {
@@ -35,8 +38,8 @@ body {
 }
 
 .footer {
-    color: #887;
-    background-color: #eee;
+    color: #e8e8d5;
+    background-color: #202020;
     padding-top: 30px;
     padding-bottom: 30px;
 }
