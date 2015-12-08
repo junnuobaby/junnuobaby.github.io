@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/css/extends.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <title>君诺宝宝</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://junnuobaby.github.io">君诺宝宝</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="mood.html"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> 我的心情</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 我的故事</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> 我的宝藏</a></li>
+                <li><a href="https://ictxiangxin.github.io"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 时间坐标</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="container">
+        <div class="fb-profile">
+            <img align="left" class="fb-image-lg" src="assets/images/fb-background-image.jpg"/>
+            <img align="left" class="fb-image-profile thumbnail" src="assets/images/fb-profile-image.png"/>
+            <div class="fb-profile-text">
+                <h1>君诺宝宝</h1>
+                <p>一个十足的二货妹子</p>
+            </div>
+        </div>
+        <div class="row">
+            <section id="pinBoot">
+                <article class="white-panel">
+                    <img src="assets/images/mood/1.png" alt="">
+                    <h4>初创主页</h4>
+                    <p>
+                        这是创建主页的第一条心情，今天的主题是：“开心”！
+                    </p>
+                </article>
+                <article class="white-panel">
+                    <img src="assets/images/mood/2.png" alt="">
+                    <h4>开普勒乱入</h4>
+                    <p>
+                        第二条心情的添加，添加方式非常方便，显示效果十分炫酷。
+                    </p>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+<footer class="footer text-center">
+    <div class="container">
+        <small>© Copyright 2015. Craft by junnuobaby ictxiangxin</small>
+    </div>
+</footer>
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+        $('#pinBoot').pinterest_grid({
+            no_columns: 4,
+            padding_x: 10,
+            padding_y: 10,
+            margin_bottom: 50,
+            single_column_breakpoint: 700
+        });
+    });
+    (function ($, window, document, undefined) {
+        var pluginName = 'pinterest_grid',
+                defaults = {
+                    padding_x: 10,
+                    padding_y: 10,
+                    no_columns: 3,
+                    margin_bottom: 50,
+                    single_column_breakpoint: 700
+                },
+                columns,
+                $article,
+                article_width;
+
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, defaults, options) ;
+            this._defaults = defaults;
+            this._name = pluginName;
+            this.init();
+        }
+
+        Plugin.prototype.init = function () {
+            var self = this,
+                    resize_finish;
+
+            $(window).resize(function() {
+                clearTimeout(resize_finish);
+                resize_finish = setTimeout( function () {
+                    self.make_layout_change(self);
+                }, 11);
+            });
+
+            self.make_layout_change(self);
+
+            setTimeout(function() {
+                $(window).resize();
+            }, 500);
+        };
+
+        Plugin.prototype.calculate = function (single_column_mode) {
+            var self = this,
+                    tallest = 0,
+                    row = 0,
+                    $container = $(this.element),
+                    container_width = $container.width();
+            $article = $(this.element).children();
+
+            if(single_column_mode === true) {
+                article_width = $container.width() - self.options.padding_x;
+            } else {
+                article_width = ($container.width() - self.options.padding_x * self.options.no_columns) / self.options.no_columns;
+            }
+
+            $article.each(function() {
+                $(this).css('width', article_width);
+            });
+
+            columns = self.options.no_columns;
+
+            $article.each(function(index) {
+                var current_column,
+                        left_out = 0,
+                        top = 0,
+                        $this = $(this),
+                        prevAll = $this.prevAll(),
+                        tallest = 0;
+
+                if(single_column_mode === false) {
+                    current_column = (index % columns);
+                } else {
+                    current_column = 0;
+                }
+
+                for(var t = 0; t < columns; t++) {
+                    $this.removeClass('c'+t);
+                }
+
+                if(index % columns === 0) {
+                    row++;
+                }
+
+                $this.addClass('c' + current_column);
+                $this.addClass('r' + row);
+
+                prevAll.each(function(index) {
+                    if($(this).hasClass('c' + current_column)) {
+                        top += $(this).outerHeight() + self.options.padding_y;
+                    }
+                });
+
+                if(single_column_mode === true) {
+                    left_out = 0;
+                } else {
+                    left_out = (index % columns) * (article_width + self.options.padding_x);
+                }
+
+                $this.css({
+                    'left': left_out,
+                    'top' : top
+                });
+            });
+
+            this.tallest($container);
+            $(window).resize();
+        };
+
+        Plugin.prototype.tallest = function (_container) {
+            var column_heights = [],
+                    largest = 0;
+
+            for(var z = 0; z < columns; z++) {
+                var temp_height = 0;
+                _container.find('.c'+z).each(function() {
+                    temp_height += $(this).outerHeight();
+                });
+                column_heights[z] = temp_height;
+            }
+
+            largest = Math.max.apply(Math, column_heights);
+            _container.css('height', largest + (this.options.padding_y + this.options.margin_bottom));
+        };
+
+        Plugin.prototype.make_layout_change = function (_self) {
+            if($(window).width() < _self.options.single_column_breakpoint) {
+                _self.calculate(true);
+            } else {
+                _self.calculate(false);
+            }
+        };
+
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, 'plugin_' + pluginName)) {
+                    $.data(this, 'plugin_' + pluginName,
+                            new Plugin(this, options));
+                }
+            });
+        }
+
+    })(jQuery, window, document);
+</script>
