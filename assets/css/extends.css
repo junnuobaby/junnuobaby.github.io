@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    /*background: -moz-linear-gradient(0deg , #C5CCC2, #A1B7B3) repeat fixed 0% 0%;*/
 }
 
 body {
@@ -7,8 +8,8 @@ body {
     padding-bottom: 40px;
     overflow: -moz-scrollbars-vertical;
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
-    background-image: url("../images/background.jpg");
-    background-size: cover;
+    background: transparent url("../images/background.png") repeat fixed 0px 0px;
+
 }
 
 .fb-profile{
